@@ -39,13 +39,12 @@ async function extractdata(page) {
     await page.goto(URL);
     await page.fill('input[type="search"]', "Playstation 5");
     await page.click("div.search-box__search--2fC5 a");
-    await page.locator("#root div.uM5g9 div a:nth-child(4)").click();
+    await page.locator("#root div.uM5g9 div a:nth-child(5)").click();
     await expect(page).toHaveTitle("Buy PlayStation Controllers Online at Best Price in Pakistan - Daraz.pk");
     await extractdata(page);
     await page.locator("div.b7FXJ>div>ul>li:nth-child(3)>a").click();
     await extractdata(page);
-    console.log(MainControllers);
-    //await fs.writeFile("./daraz_scrap.json",JSON.stringify(MainControllers))
+    await fs.writeFile("./Data/daraz_scrap.json", JSON.stringify(MainControllers));
     await browser.close();
 })();
 //# sourceMappingURL=daraz.js.map
